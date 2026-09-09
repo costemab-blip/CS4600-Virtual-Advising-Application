@@ -11,7 +11,7 @@ This Project aims to create a functional advising application that allows studen
   1. install the [dotnet 10 sdk](https://dotnet.microsoft.com/en-us/download)
      * you can check if you already have it installed by running ```dotnet --version``` in a terminal window
   2. install node.js and npm
-     * Check Installation: ``` node -v
+     * Check Installation: ``` node -v, 
       npm -v ```
   3. install the Angular CLI
      * Run ```npm install -g @angular/cli ``` in a PowerShell window
