@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="advisingapp.client/advisingapp.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="AdvisingApp.Server/AdvisingApp.Server.csproj" />
+</Solution>
