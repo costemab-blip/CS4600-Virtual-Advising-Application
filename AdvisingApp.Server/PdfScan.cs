@@ -6,9 +6,9 @@ using UglyToad.PdfPig.Content;
 
 public class PdfScan
 {
-    public static void ScanPdf(string filePath)
+    public static void ScanPdf()
     {
-        using (PdfDocument document = PdfDocument.Open(filePath))
+        using (PdfDocument document = PdfDocument.Open(@".\uploaded-images\Lorem Ipsum.pdf"))
         {
             foreach (Page page in document.GetPages())
             {
