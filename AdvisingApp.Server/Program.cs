@@ -1,9 +1,11 @@
+using Microsoft.Extensions.FileSystemGlobbing.Internal.PathSegments;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-PdfScan.ScanPdf();
-
+// PdfScan.ScanPdf();
 builder.Services.AddControllers();
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -25,5 +27,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
+var words = InputReader.getWords(@"uploaded-images/advisement-report.txt");
+Console.WriteLine(string.Join(", ", words));
 
 app.Run();
+
