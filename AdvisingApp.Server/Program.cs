@@ -1,3 +1,4 @@
+using AdvisingApp.Server;
 using Microsoft.Extensions.FileSystemGlobbing.Internal.PathSegments;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,8 +28,8 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
-var words = InputReader.getWords(@"uploaded-images/advisement-report.txt");
-Console.WriteLine(string.Join(", ", words));
+List<UNICourseItem> completedCourses = InputReader.GetCompletedCourses(@"uploaded-images/advisement-report-no-headings.txt");
+Console.WriteLine(string.Join(", ", completedCourses.Select(c => c.Title)));
 
 app.Run();
 

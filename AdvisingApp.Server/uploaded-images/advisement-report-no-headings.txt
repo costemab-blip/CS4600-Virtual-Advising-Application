@@ -1,0 +1,37 @@
+BIOL 1014 Life: Continuity & Change 3.0 2022 FALL W EN 
+CS 1510 Intro To Computing 4.0 2022 FALL A- EN 
+MUSIC 1100 Soundscape: Music in Cultr 3.0 2022 FALL B EN 
+STAT 1772 Statistical Methods 3.0 2022 FALL C+ EN 
+UNIV 1000 First-Year Cornerstone: I 3.0 2022 FALL C EN 
+GEOG 1110 Global Geography 3.0 2023 SPRG A EN 
+CS 1410 Computer Organization ORG 3.0 2023 SPRG D EN 
+CS 1800 Discrete Structures ORG 3.0 2023 SPRG F EN 
+SPAN 1001 Elementary Spanish I 3.0 2023 SPRG C EN 
+UNIV 1010 First-Year Cornerstone: II 3.0 2023 SPRG C EN 
+BIOL 1012 Life: The Natural World 3.0 2023 FALL A EN 
+CS 1520 Data Structures 4.0 2023 FALL B+ EN 
+CS 1800 Discrete Structures RPL 3.0 2023 FALL A EN 
+EDPSYCH 2030 Dynamcs Of Human Dvlpmnt 3.0 2023 FALL C+ EN 
+BIOL 1013 Life: Natural World Lab 1.0 2024 SPRG B+ EN 
+CS 1410 Computer Organization RPL 3.0 2024 SPRG C EN 
+ECON 1001 Economics Social Issues 3.0 2024 SPRG B- EN 
+MATH 1140 Precalculus 4.0 2024 SPRG C- EN 
+SPAN 1002 Elementary Spanish II 3.0 2024 SPRG B EN 
+CS 2530 Intermediate Computing 3.0 2024 FALL B EN 
+EARTHSCI 1100 Astronomy 3.0 2024 FALL B- EN 
+MATH 1420 Calculus I ORG 4.0 2024 FALL F EN 
+PHYSICS 1000 Physics In Everyday Life 3.0 2024 FALL C EN 
+CS 3540 Prgms Lnguages & Paradigms 3.0 2025 SPRG W EN 
+CS 3750 Software Verification&Validatn 3.0 2025 SPRG A EN 
+CS 3810 Theory Of Computation 3.0 2025 SPRG A EN 
+MATH 1420 Calculus I RPL 4.0 2025 SPRG A EN 
+CS 3730 Project Management 1.0 2025 FALL A EN 
+CS 3120 User Interface Design 3.0 2025 FALL A EN 
+CS 3610 Artificial Intelligence 3.0 2025 FALL A EN 
+CS 4550 Trnsltn Prgrmming Lnguages 3.0 2025 FALL B+ EN 
+FIN 1040 Financial Skills- Smart Living 3.0 2025 FALL A EN 
+MATH 1421 Calculus II 4.0 2025 FALL C+ EN 
+CS 2720 Software Engineering 3.0 2026 SPRG A EN 
+CS 3430 Operating Systems 3.0 2026 SPRG A EN 
+CS 4620 Intelligent Systems 3.0 2026 SPRG A- EN 
+MATH 2500 Linear Algebra Application 3.0 2026 SPRG B- EN
