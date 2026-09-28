@@ -11,7 +11,7 @@ public class InputReader
             List<string> tempList = GetListFromLine(line);
             UNICourseItem Course = MapListToUNICourseItem(tempList);
 
-            if (Course.Grade == "W" || Course.Grade == "F" || Course.Grade == "D" || Course.Grade == "D-")
+            if (Course.Grade == "W" || Course.Grade == "F" || Course.Grade == "D" || Course.Grade == "D+" || Course.Grade == "D-")
             {
                 continue;
             }
@@ -22,11 +22,25 @@ public class InputReader
 
     public static UNICourseItem MapListToUNICourseItem(List<string> wordList)
     {
+        string title = "";
+        for (int index = 2; index < wordList.Count;)
+        {
+            while (double.TryParse(wordList[index], out _) == false)
+            {
+                if (wordList[index] == "RPL")
+                {
+                    break;
+                }
+                title += wordList[index] + " ";
+                index += 1;
+            }
+            break;
+        }
         UNICourseItem courseItem = new UNICourseItem()
         {
             CourseTopic = wordList[0],
             CourseCode = wordList[1],
-            Title = wordList[2],
+            Title = title,
             Units = wordList[wordList.Count - 5],
             Year = wordList[wordList.Count - 4],
             Term = wordList[wordList.Count - 3],
