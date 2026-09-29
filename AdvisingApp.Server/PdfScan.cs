@@ -8,15 +8,17 @@ public class PdfScan
 {
     public static void ScanPdf()
     {
-        using (PdfDocument document = PdfDocument.Open(@".\uploaded-images\Lorem Ipsum.pdf"))
+        List<string>wordList = new List<string>();
+        using (PdfDocument document = PdfDocument.Open(@".\uploaded-images\matthew-costello-advising-report.pdf"))
         {
             foreach (Page page in document.GetPages())
             {
                 IReadOnlyList<Letter> letters = page.Letters;
                 string example = string.Join(string.Empty, letters.Select(x => x.Value));
-
+                wordList.Add(example);
                 IEnumerable<Word> words = page.GetWords();
-                Console.WriteLine(words);
+                Console.WriteLine(words); 
+                //Console.WriteLine(page.Text);
             }
         }
     }
