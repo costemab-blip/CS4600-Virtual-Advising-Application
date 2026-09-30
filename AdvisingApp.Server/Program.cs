@@ -28,7 +28,7 @@ app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
 List<UNICourseItem> completedCourses = InputReader.GetCompletedCourses(@"uploaded-images/advisement-report-no-headings.txt");
-Console.WriteLine(string.Join(", ", completedCourses.Select(c => c.Title)));
+//Console.WriteLine(string.Join(", ", completedCourses.Select(c => c.Title)));
 PdfScan.ScanPdf();
 
 

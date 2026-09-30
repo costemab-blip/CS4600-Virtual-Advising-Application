@@ -60,21 +60,6 @@ public class InputReader
         {
             outputList.Add(word);
         }
-
-        string title = "";
-        for (int index = 2; index < outputList.Count;)
-        {
-            while (double.TryParse(outputList[index], out _) == false)
-            {
-                if (outputList[index] == "RPL")
-                {
-                    break;
-                }
-                title += outputList[index] + " ";
-                index += 1;
-            }
-            break;
-        }
         return outputList;
     }
 }
