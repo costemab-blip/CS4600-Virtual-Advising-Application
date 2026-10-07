@@ -1,6 +1,28 @@
 using AdvisingApp.Server;
+using System.Linq;
 public class InputReader
 {
+
+    public static List<UNICourseItem> GetRemainingCourses(List<UNICourseItem> completedCourses, List<UNICourseItem> requiredCourses)
+    {
+        List<UNICourseItem> remainingCourses = new List<UNICourseItem>();
+        requiredCourses = requiredCourses.Except(completedCourses).ToList();
+        return requiredCourses;
+    }
+
+    public static List<UNICourseItem> GetRequiredCourses(string filePath)
+    {
+        List<UNICourseItem> courses = new List<UNICourseItem>();
+        var fileContent = File.ReadLines(filePath);
+        foreach (var line in fileContent)
+        {
+            List<string> tempList = GetListFromLine(line);
+            UNICourseItem Course = MapListToUNICourseItem(tempList);
+            courses.Add(Course);
+        }
+        return courses;
+    }
+
     public static List<UNICourseItem> GetCompletedCourses(string filePath)
     {
         List<UNICourseItem> completedCourses = new List<UNICourseItem>();
@@ -36,6 +58,7 @@ public class InputReader
             }
             break;
         }
+
         UNICourseItem courseItem = new UNICourseItem()
         {
             CourseTopic = wordList[0],
@@ -47,14 +70,14 @@ public class InputReader
             Grade = wordList[wordList.Count - 2],
             Type = wordList[wordList.Count - 1],
         };
+
         return courseItem;
     }
 
     public static List<string> GetListFromLine(string line)
     {
         List<string> outputList = new List<string>();
-        string[] words = line.Split([' ', '\n', '\r'],
-        StringSplitOptions.RemoveEmptyEntries);
+        string[] words = line.Split(new[] { ' ', '\n', '\r' }, StringSplitOptions.RemoveEmptyEntries);
 
         foreach (var word in words)
         {

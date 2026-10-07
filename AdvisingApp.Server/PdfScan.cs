@@ -1,4 +1,5 @@
-﻿using UglyToad.PdfPig;
+﻿using AdvisingApp.Server;
+using UglyToad.PdfPig;
 using UglyToad.PdfPig.Content;
 
 public class PdfScan
@@ -13,7 +14,7 @@ public class PdfScan
             page.GetWords().ToList().ForEach(word => words.Add(word.Text));
             foreach (Word word in page.GetWords())
             {
-                Console.WriteLine($" ({word.Text}) (PointSize: {GetPointSize(word)}) (TextType: {GetTextType(word)})");
+                //Console.WriteLine($" ({word.Text}) (PointSize: {GetPointSize(word)}) (TextType: {GetTextType(word)})");
             }
         }
     }
@@ -34,7 +35,7 @@ public class PdfScan
         {
             return "Header";
         }
-        if(GetPointSize(inputWord) > 8)
+        if (GetPointSize(inputWord) > 8)
         {
             return "Section Header";
         }
@@ -42,6 +43,35 @@ public class PdfScan
         {
             return "Body Text";
         }
+    }
+    //This section is incomplete, I still need to build the functionality
+    public static void GetSections(PdfDocument inputDoc)
+    {
+        List<SectionDataItem> sectionDataItems = new List<SectionDataItem>();
 
+        foreach (Page page in inputDoc.GetPages())
+        {
+            foreach (Word word in page.GetWords())
+            {
+                if (GetTextType(word) == "Header")
+                {
+                    string sectionTitle = "";
+                    while (true)
+                    {
+                        sectionTitle += word.Text + " ";
+                        sectionDataItems.Add(new SectionDataItem { SectionTitle = sectionTitle });
+                    }
+                }
+
+                while (GetTextType(word) != "Header")
+                {
+                    string sectionContent = "";
+                    sectionContent += word.Text + " ";
+                    
+                    //Console.WriteLine("Section Content: " + sectionContent);
+                }
+            }
+        }
     }
 }
+
