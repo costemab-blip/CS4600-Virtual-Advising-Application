@@ -2,12 +2,17 @@ using AdvisingApp.Server;
 using System.Linq;
 public class InputReader
 {
-
     public static List<UNICourseItem> GetRemainingCourses(List<UNICourseItem> completedCourses, List<UNICourseItem> requiredCourses)
     {
         List<UNICourseItem> remainingCourses = new List<UNICourseItem>();
-        requiredCourses = requiredCourses.Except(completedCourses).ToList();
-        return requiredCourses;
+        foreach (var courseItem in requiredCourses) {
+            if(courseItem.CourseCode != null && !completedCourses.Any(c => c.CourseCode == courseItem.CourseCode))
+            {
+                remainingCourses.Add(courseItem);
+                Console.WriteLine($"Added course:  {courseItem.CourseTopic}{courseItem.CourseCode} {courseItem.Title}");
+            }
+        }
+        return remainingCourses;
     }
 
     public static List<UNICourseItem> GetRequiredCourses(string filePath)
