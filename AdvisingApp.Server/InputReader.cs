@@ -6,10 +6,10 @@ public class InputReader
     {
         List<UNICourseItem> remainingCourses = new List<UNICourseItem>();
         foreach (var courseItem in requiredCourses) {
-            if(courseItem.CourseCode != null && !completedCourses.Any(c => c.CourseCode == courseItem.CourseCode))
+            if(courseItem.CourseCode != null && !completedCourses.Any(c => c.CourseCode == courseItem.CourseCode && c.CourseTopic == courseItem.CourseTopic))
             {
                 remainingCourses.Add(courseItem);
-                Console.WriteLine($"Added course:  {courseItem.CourseTopic}{courseItem.CourseCode} {courseItem.Title}");
+                Console.WriteLine($"Added course:  {courseItem.CourseTopic} {courseItem.CourseCode} {courseItem.Title}");
             }
         }
         return remainingCourses;
