@@ -31,10 +31,9 @@ List<UNICourseItem> completedCourses = InputReader.GetCompletedCourses(@"uploade
 //Console.WriteLine(string.Join(", ", completedCourses.Select(c => c.Title)));
 
 List<UNICourseItem> requiredCourses = InputReader.GetRequiredCourses(@"uploaded-images/required-classes.txt");
-Console.WriteLine("required courses: [ \n " + string.Join(", \n", requiredCourses.Select(c => c.Title)) + " ]");
+//Console.WriteLine(string.Join(", ", requiredCourses.Select(c => c.Title)));
 
 List<UNICourseItem> remainingCourses = InputReader.GetRemainingCourses(completedCourses, requiredCourses);
-Console.WriteLine("remaining courses: [\n " + string.Join(", \n ", remainingCourses.Select(c => c.Title)) + " ]");
-
+Console.WriteLine(string.Join(", ", remainingCourses.Select(c => c.Title)));
 app.Run();
 
