@@ -1,1 +1,23 @@
 /* You can add global styles to this file, and also import other style files */
+.container-style {
+  background-color: #4b116f;
+  border-color: #ffcc00;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 10px;
+  border-style: groove;
+  box-shadow: 10px 10px 10px;
+}
+
+  .container-style h1 {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  }
+
+  .container-style p {
+    color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+  }
+

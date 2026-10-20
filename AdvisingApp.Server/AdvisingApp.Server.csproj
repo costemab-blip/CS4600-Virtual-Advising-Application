@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="uploaded-images\matthew-costello-advising-report.pdf">
+    <None Update="uploaded-images\pdf\matthew-costello-advising-report.pdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
