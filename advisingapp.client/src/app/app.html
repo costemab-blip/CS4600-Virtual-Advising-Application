@@ -1,24 +1,36 @@
-<h1 id="tableLabel">Weather forecast</h1>
+<h1>Remaining Courses</h1>
 
-<p>This component demonstrates fetching data from the server.</p>
+<p *ngIf="isLoading">
+  <em>Loading courses... </em>
+</p>
 
-<p *ngIf="!forecasts"><em>Loading... Please refresh once the ASP.NET backend has started. See <a href="https://aka.ms/jspsintegrationangular">https://aka.ms/jspsintegrationangular</a> for more details.</em></p>
+<p *ngIf="errorMessage">
+  {{ errorMessage }}
+</p>
 
-<table *ngIf="forecasts">
+<p *ngIf="!isLoading && remainingCourses.length > 0">
+  No remaining courses were found.
+<p>
+
+  <table *ngIf="!isLoading && remainingCourses.length > 0">
     <thead>
-        <tr>
-            <th>Date</th>
-            <th>Temp. (C)</th>
-            <th>Temp. (F)</th>
-            <th>Summary</th>
-        </tr>
+      <tr>
+        <th>Course Topic</th>
+        <th>Course Code</th>
+        <th>Title</th>
+        <th>Units</th>
+        <th>Grade</th>
+      </tr>
     </thead>
+
     <tbody>
-        <tr *ngFor="let forecast of forecasts">
-            <td>{{ forecast.date }}</td>
-            <td>{{ forecast.temperatureC }}</td>
-            <td>{{ forecast.temperatureF }}</td>
-            <td>{{ forecast.summary }}</td>
-        </tr>
+      <tr *ngFor="let course of remainingCourses">
+        <td>{{ course.courseTopic }}</td>
+        <td>{{ course.courseCode }}</td>
+        <td>{{ course.title }}</td>
+        <td>{{ course.units }}</td>
+        <td>{{ course.grade }}</td>
+      </tr>
     </tbody>
-</table>
+  </table>
+

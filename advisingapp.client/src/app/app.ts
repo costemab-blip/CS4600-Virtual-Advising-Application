@@ -40,6 +40,5 @@ export class App implements OnInit {
         },         
       });
   }
-
   protected readonly title = signal('advisingapp.client');
 }
