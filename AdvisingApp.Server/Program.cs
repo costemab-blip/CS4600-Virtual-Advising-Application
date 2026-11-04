@@ -27,7 +27,7 @@ app.UseAuthorization();
 app.MapControllers();
 
 app.MapFallbackToFile("/index.html");
-List<UNICourseItem> completedCourses = InputReader.GetCompletedCourses(@"uploaded-images/advisement-report-no-headings.txt");
+List<UNICourseItem> completedCourses = InputReader.GetCompletedCourses(@"uploaded-images/completed-classes.txt");
 //Console.WriteLine(string.Join(", ", completedCourses.Select(c => c.Title)));
 
 List<UNICourseItem> requiredCourses = InputReader.GetRequiredCourses(@"uploaded-images/required-classes.txt");
@@ -35,5 +35,7 @@ List<UNICourseItem> requiredCourses = InputReader.GetRequiredCourses(@"uploaded-
 
 List<UNICourseItem> remainingCourses = InputReader.GetRemainingCourses(completedCourses, requiredCourses);
 Console.WriteLine(string.Join(", ", remainingCourses.Select(c => c.Title)));
+
+app.MapGet("/api/remaining-courses",() => remainingCourses);
 app.Run();
 
