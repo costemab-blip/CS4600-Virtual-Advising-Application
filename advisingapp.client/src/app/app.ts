@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, signal } from '@angular/core';
 
-interface WeatherForecast {
-  date: string;
-  temperatureC: number;
-  temperatureF: number;
-  summary: string;
+interface CourseItem {
+  courseTopic: string | null;
+  courseCode: string | null;
+  title: string | null;
+  units: string | null;
+  grade: string | null;
 }
 
 @Component({
@@ -15,24 +16,23 @@ interface WeatherForecast {
   templateUrl: './app.html',
 })
 export class App implements OnInit {
-  public forecasts: WeatherForecast[] = [];
+  public remainingCourses: CourseItem[] = [];
+  public isLoading = signal(true);
+  public errorMessage = signal('');
 
   constructor(private http: HttpClient) {}
 
-  ngOnInit() {
-    this.getForecasts();
-  }
-
-  getForecasts() {
-    this.http.get<WeatherForecast[]>('/weatherforecast').subscribe(
-      (result) => {
-        this.forecasts = result;
+  ngOnInit(): void {
+    this.http.get<CourseItem[]>('/api/remaining-courses').subscribe({
+      next: (courses) => {
+        this.remainingCourses = courses;
+        this.isLoading.set(false);
       },
-      (error) => {
-        console.error(error);
-      }
-    );
+      error: (error: unknown) => {
+        console.error('Failed to load remaining courses:', error);
+        this.errorMessage.set('Unable to load remaining courses.');
+        this.isLoading.set(false);
+      },
+    });
   }
-
-  protected readonly title = signal('advisingapp.client');
 }
