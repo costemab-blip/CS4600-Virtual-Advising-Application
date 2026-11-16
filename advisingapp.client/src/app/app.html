@@ -1,3 +1,8 @@
+<div class="container-style">
+  <app-file-upload></app-file-upload>
+</div>
+
+<app-file-upload></app-file-upload>
 <h1>Remaining Courses</h1>
 
 <p *ngIf="isLoading()">
@@ -12,25 +17,25 @@
   No remaining courses were found.
 </p>
 
-  <table>
-    <thead>
-      <tr>
-        <th>Course Topic</th>
-        <th>Course Code</th>
-        <th>Title</th>
-        <th>Units</th>
-        <th>Grade</th>
-      </tr>
-    </thead>
 
-    <tbody>
-      <tr *ngFor="let course of remainingCourses">
-        <td>{{ course.courseTopic }}</td>
-        <td>{{ course.courseCode }}</td>
-        <td>{{ course.title }}</td>
-        <td>{{ course.units }}</td>
-        <td>{{ course.grade }}</td>
-      </tr>
-    </tbody>
-  </table>
+<table>
+  <thead>
+    <tr>
+      <th>Course Topic</th>
+      <th>Course Code</th>
+      <th>Title</th>
+      <th>Units</th>
+      <th>Grade</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let course of remainingCourses">
+      <td>{{ course.courseTopic }}</td>
+      <td>{{ course.courseCode }}</td>
+      <td>{{ course.title }}</td>
+      <td>{{ course.units }}</td>
+      <td>{{ course.grade }}</td>
+    </tr>
+  </tbody>
+</table>
 

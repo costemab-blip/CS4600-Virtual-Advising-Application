@@ -1,6 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { App } from './app';
+import { FileUpload } from './file-upload/file-upload';
 
 describe('App', () => {
   let component: App;
@@ -9,7 +10,7 @@ describe('App', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [App],
+      declarations: [App, FileUpload],
       imports: [HttpClientTestingModule],
     }).compileComponents();
 
@@ -24,6 +25,13 @@ describe('App', () => {
 
   it('should create the app', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should render the file upload component', () => {
+    fixture.detectChanges();
+    httpMock.expectOne('/api/remaining-courses').flush([]);
+
+    expect(fixture.nativeElement.querySelector('app-file-upload')).not.toBeNull();
   });
 
   it('should retrieve remaining courses from the server', () => {
@@ -44,7 +52,7 @@ describe('App', () => {
     req.flush(mockCourses);
 
     expect(component.remainingCourses).toEqual(mockCourses);
-    expect(component.isLoading).toBe(false);
+    expect(component.isLoading()).toBe(false);
   });
 
   it('should show an error when remaining courses cannot be loaded', () => {
@@ -56,7 +64,7 @@ describe('App', () => {
       statusText: 'Internal Server Error',
     });
 
-    expect(component.errorMessage).toBe('Unable to load remaining courses.');
-    expect(component.isLoading).toBe(false);
+    expect(component.errorMessage()).toBe('Unable to load remaining courses.');
+    expect(component.isLoading()).toBe(false);
   });
 });
