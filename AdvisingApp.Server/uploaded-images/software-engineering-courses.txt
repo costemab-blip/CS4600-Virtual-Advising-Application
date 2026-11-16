@@ -1,0 +1,5 @@
+CS 2720 Software Engineering 3.0 2XXX N
+CS 3120/5120 User Interface Design 3.0 Spring 2XXX N
+CS 3750/5750 Software Verification and Validation 3.0 Spring 2XXX N
+CS 4740/5740 Real-Time Embedded Systems 3.0 Fall 2XXX N
+CS 4880/5880 Topics in Computer Science 3.0 Fall 2XXX N

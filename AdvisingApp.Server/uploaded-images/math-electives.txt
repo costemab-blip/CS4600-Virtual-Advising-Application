@@ -1,0 +1,8 @@
+MATH 1420 Calculus I 4.0 Fall 2XXX N
+MATH 1421 Calculus II 4.0 SPRG 2XXX N
+MATH 2500 Linear Algebra for Applications 4.0 2XXX N
+MATH 3440/5440 Numerical Analysis 4.0 2XXX N		
+MATH 3530 Combinatorics 4.0 2XXX N
+MATH 3752/5752 Introduction to Probability 4.0 2XXX N
+STAT 1772 Introduction to Statistical Method 4.0 2XXX N
+STAT 4784/5784 Introduction to Machine Learning 4.0 2XXX N

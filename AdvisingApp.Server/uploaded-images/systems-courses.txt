@@ -1,0 +1,7 @@
+CS 2420 Computer Architecture and Parallel Programming 2XXX N
+CS 2470 Networking 2XXX N
+CS 3430/5430 Operating Systems 2XXX N
+CS 4400/5400 System Administration 2XXX N
+CS 4410/5410 System Security 2XXX N
+CS 4420 Applied Systems Forensics 2XXX N
+CS 4880/5880 Topics in Computer Science 2XXX N

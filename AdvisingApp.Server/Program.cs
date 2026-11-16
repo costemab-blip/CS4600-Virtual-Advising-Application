@@ -30,11 +30,14 @@ app.MapFallbackToFile("/index.html");
 List<UNICourseItem> completedCourses = InputReader.GetCompletedCourses(@"uploaded-images/completed-classes.txt");
 //Console.WriteLine(string.Join(", ", completedCourses.Select(c => c.Title)));
 
-List<UNICourseItem> requiredCourses = InputReader.GetRequiredCourses(@"uploaded-images/required-classes.txt");
+List<UNICourseItem> requiredCourses = InputReader.GetCourses(@"uploaded-images/required-classes.txt");
 //Console.WriteLine(string.Join(", ", requiredCourses.Select(c => c.Title)));
 
 List<UNICourseItem> remainingCourses = InputReader.GetRemainingCourses(completedCourses, requiredCourses);
-Console.WriteLine(string.Join(", ", remainingCourses.Select(c => c.Title)));
+//Console.WriteLine(string.Join(", ", remainingCourses.Select(c => c.Title)));
+
+List<UNICourseItem> softwareEngineeringCourses = InputReader.GetCourses(@"uploaded-images/software-engineering-courses.txt");
+Console.WriteLine(string.Join(", ", softwareEngineeringCourses.Select(c => c.Title)));
 
 app.MapGet("/api/remaining-courses",() => remainingCourses);
 app.Run();

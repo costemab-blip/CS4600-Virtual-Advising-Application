@@ -1,0 +1,7 @@
+CS 1410 Computer Organization 3.0 FALL/SPRING 2XXX N
+CS 1510 Introduction to Computing 4.0 FALL/SPRING 2XXX N
+CS 1520 Data Structures 4.0 FALL/SPRING 2XXX N
+CS 1800 Discrete Structures 3.0 FALL/SPRING 2XXX N
+CS 2530 Intermediate Computing 3.0 FALL/SPRING 2XXX N
+CS 3730 Project Management 1.0 FALL/SPRING 2XXX N
+CS 4800 Undergraduate Research in Computer Science 1.0 FALL/SPRING 2XXX N
