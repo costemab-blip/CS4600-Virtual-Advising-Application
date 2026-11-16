@@ -1,0 +1,5 @@
+CS 3530 Design and Analysis of Algorithms 3.0 Fall 2XXX N
+CS 3540 Programming Languages and Paradigms 3.0 Spring 2XXX N
+CS 3810/5810 Theory of Computation 3.0 Spring 2XXX N
+CS 4550/5550 Translation of Programming Languages 3.0 Fall 2XXX N
+CS 4880/5880 Topics in Computer Science 3.0 2XXX N

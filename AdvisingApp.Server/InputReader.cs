@@ -15,7 +15,7 @@ public class InputReader
         return remainingCourses;
     }
 
-    public static List<UNICourseItem> GetRequiredCourses(string filePath)
+    public static List<UNICourseItem> GetCourses(string filePath)
     {
         List<UNICourseItem> courses = new List<UNICourseItem>();
         var fileContent = File.ReadLines(filePath);
@@ -69,11 +69,9 @@ public class InputReader
             CourseTopic = wordList[0],
             CourseCode = wordList[1],
             Title = title,
-            Units = wordList[wordList.Count - 5],
-            Year = wordList[wordList.Count - 4],
-            Term = wordList[wordList.Count - 3],
-            Grade = wordList[wordList.Count - 2],
-            Type = wordList[wordList.Count - 1],
+            Units = wordList[wordList.Count - 1],
+            Term = wordList[wordList.Count - 2],
+            Grade = wordList[wordList.Count - 3],
         };
 
         return courseItem;
@@ -89,5 +87,27 @@ public class InputReader
             outputList.Add(word);
         }
         return outputList;
+    }
+
+    public static List<UNICourseItem> TrimList(List<UNICourseItem> course_list, List<UNICourseItem> completedCourses )
+    {
+        foreach( UNICourseItem course in course_list ){
+            if (course.CourseCode == null || course.CourseTopic == null || course.Title == null || course.Units == null || course.Term == null || course.Grade == null)
+            {
+                course_list.Remove(course);
+            }
+            
+            if (course.CourseCode == "Course" || course.CourseTopic == "Topic" || course.Title == "Title" || course.Units == "Units" || course.Term == "Term" || course.Grade == "Grade")
+            {
+                course_list.Remove(course);
+            }
+
+            if (completedCourses.Any(c => c.CourseCode == course.CourseCode && c.CourseTopic == course.CourseTopic))
+            {
+                course_list.Remove(course);
+            }
+
+        }
+        return course_list;
     }
 }

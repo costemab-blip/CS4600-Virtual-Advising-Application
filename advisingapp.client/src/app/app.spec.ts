@@ -1,6 +1,7 @@
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { App } from './app';
+import { FileUpload } from './file-upload/file-upload';
 
 describe('App', () => {
   let component: App;
@@ -9,12 +10,10 @@ describe('App', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [App],
-      imports: [HttpClientTestingModule]
+      declarations: [App, FileUpload],
+      imports: [HttpClientTestingModule],
     }).compileComponents();
-  });
 
-  beforeEach(() => {
     fixture = TestBed.createComponent(App);
     component = fixture.componentInstance;
     httpMock = TestBed.inject(HttpTestingController);
@@ -28,18 +27,44 @@ describe('App', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should retrieve weather forecasts from the server', () => {
-    const mockForecasts = [
-      { date: '2021-10-01', temperatureC: 20, temperatureF: 68, summary: 'Mild' },
-      { date: '2021-10-02', temperatureC: 25, temperatureF: 77, summary: 'Warm' }
+  it('should render the file upload component', () => {
+    fixture.detectChanges();
+    httpMock.expectOne('/api/remaining-courses').flush([]);
+
+    expect(fixture.nativeElement.querySelector('app-file-upload')).not.toBeNull();
+  });
+
+  it('should retrieve remaining courses from the server', () => {
+    const mockCourses = [
+      {
+        courseTopic: 'CS',
+        courseCode: '1010',
+        title: 'Intro to Computer Science',
+        units: '3',
+        grade: null,
+      },
     ];
 
     component.ngOnInit();
 
-    const req = httpMock.expectOne('/weatherforecast');
-    expect(req.request.method).toEqual('GET');
-    req.flush(mockForecasts);
+    const req = httpMock.expectOne('/api/remaining-courses');
+    expect(req.request.method).toBe('GET');
+    req.flush(mockCourses);
 
-    expect(component.forecasts).toEqual(mockForecasts);
+    expect(component.remainingCourses).toEqual(mockCourses);
+    expect(component.isLoading()).toBe(false);
   });
-};
+
+  it('should show an error when remaining courses cannot be loaded', () => {
+    component.ngOnInit();
+
+    const req = httpMock.expectOne('/api/remaining-courses');
+    req.flush('Server error', {
+      status: 500,
+      statusText: 'Internal Server Error',
+    });
+
+    expect(component.errorMessage()).toBe('Unable to load remaining courses.');
+    expect(component.isLoading()).toBe(false);
+  });
+});

@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <title>AdvisingappClient</title>
@@ -10,15 +11,24 @@
 </head>
 
 <body>
-  <div class="container-style">
-    <h1>Advising App</h1>
-    <p>
-      Hello! Welcome to my Advising App!
-      the goal of this app is to help students plan their academic future.
-    </p>
-  </div>
-  <div class="container-style">
-    <app-root></app-root>
+  <div class="page-container">
+    <header>
+      CS4800 Undergraduate Research Advising App
+    </header>
+
+    <div class="intro">
+      <h2>Hello, Welcome to my Advising App!</h2>
+      <div class="textbox">
+        <p>
+          The goal of this app is to assist students with their academic planning. The app should take in a student's
+          completed courses, and then output a list of courses left to take in order to complete their degree.
+          Right now, it calculates the remaining courses from data hard-coded in the backend, and outputs it to the
+          table below:
+        </p>
+      </div>
+    </div>
+      <app-root></app-root>
   </div>
 </body>
+
 </html>
